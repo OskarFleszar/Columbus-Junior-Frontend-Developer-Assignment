@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "types:generate": "json-schema-to-typescript schemas/columbus-recruitment.schema.json -o src/types/columbus.ts"
+    "types:generate": "npx json-schema-to-typescript schemas/columbus-recruitment.schema.json -o types/columbus.ts"
   },
   "dependencies": {
     "next": "16.2.4",
