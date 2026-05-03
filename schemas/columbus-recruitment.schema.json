@@ -30,11 +30,11 @@
 			"type": "object",
 			"additionalProperties": false,
 			"required": [
-				"link",
+				"url",
 				"altText"
 			],
 			"properties": {
-				"link": {
+				"url": {
 					"type": "string",
 					"format": "uri",
 					"minLength": 1
@@ -69,8 +69,8 @@
 			"additionalProperties": false,
 			"required": [
 				"articleNumber",
-				"ean",
-				"link",
+				"gtin",
+				"url",
 				"image",
 				"title",
 				"description",
@@ -83,11 +83,11 @@
 					"type": "string",
 					"pattern": "^[0-9]{7}$"
 				},
-				"ean": {
+				"gtin": {
 					"type": "string",
 					"pattern": "^[0-9]{13}$"
 				},
-				"link": {
+				"url": {
 					"type": "string",
 					"pattern": "^/.*"
 				},

@@ -14,13 +14,13 @@ export interface ColumbusRecruitmentData {
   products: [Product, ...Product[]];
 }
 export interface Image {
-  link: string;
+  url: string;
   altText: string;
 }
 export interface Product {
   articleNumber: string;
-  ean: string;
-  link: string;
+  gtin: string;
+  url: string;
   image: Image;
   title: string;
   description: string;
