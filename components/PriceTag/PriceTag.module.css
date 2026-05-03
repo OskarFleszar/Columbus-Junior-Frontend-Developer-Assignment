@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.price {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+
+.originalPrice {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.discountedPrice {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-discount);
+}
+
+.badge {
+  background: var(--color-discount);
+  color: white;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
