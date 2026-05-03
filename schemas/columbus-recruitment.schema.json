@@ -1,0 +1,131 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://example.com/schemas/columbus_recruitment.schema.json",
+	"title": "Columbus Recruitment Data",
+	"type": "object",
+	"additionalProperties": false,
+	"required": [
+		"title",
+		"logo",
+		"products"
+	],
+	"properties": {
+		"title": {
+			"type": "string",
+			"minLength": 1
+		},
+		"logo": {
+			"$ref": "#/$defs/image"
+		},
+		"products": {
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"$ref": "#/$defs/product"
+			}
+		}
+	},
+	"$defs": {
+		"image": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"link",
+				"altText"
+			],
+			"properties": {
+				"link": {
+					"type": "string",
+					"format": "uri",
+					"minLength": 1
+				},
+				"altText": {
+					"type": "string",
+					"minLength": 1
+				}
+			}
+		},
+		"promotion": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"name",
+				"percentage"
+			],
+			"properties": {
+				"name": {
+					"type": "string",
+					"minLength": 1
+				},
+				"percentage": {
+					"type": "integer",
+					"minimum": 0,
+					"maximum": 100
+				}
+			}
+		},
+		"product": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"articleNumber",
+				"ean",
+				"link",
+				"image",
+				"title",
+				"description",
+				"brandName",
+				"brandLogo",
+				"price"
+			],
+			"properties": {
+				"articleNumber": {
+					"type": "string",
+					"pattern": "^[0-9]{7}$"
+				},
+				"ean": {
+					"type": "string",
+					"pattern": "^[0-9]{13}$"
+				},
+				"link": {
+					"type": "string",
+					"pattern": "^/.*"
+				},
+				"image": {
+					"$ref": "#/$defs/image"
+				},
+				"title": {
+					"type": "string",
+					"minLength": 1
+				},
+				"description": {
+					"type": "string",
+					"minLength": 1
+				},
+				"brandName": {
+					"type": "string",
+					"minLength": 1
+				},
+				"brandLogo": {
+					"type": "string",
+					"format": "uri",
+					"minLength": 1
+				},
+				"price": {
+					"type": "integer",
+					"minimum": 0
+				},
+				"promotion": {
+					"anyOf": [
+						{
+							"$ref": "#/$defs/promotion"
+						},
+						{
+							"type": "null"
+						}
+					]
+				}
+			}
+		}
+	}
+}
