@@ -1,6 +1,7 @@
 :root {
-  
+
   --color-bg: #ffffff;
+  --color-page-bg: #f5f7fa;
   --color-text: #171717;
   --color-accent: #0070f3;
   --color-discount: #e11d48;
@@ -49,10 +50,11 @@ html, body {
 }
 
 body {
-  background: var(--color-bg);
+  background: var(--color-page-bg);
   color: var(--color-text);
   font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 button {

@@ -10,17 +10,19 @@ type HeaderProps = {
 export default function Header({ title, logo }: HeaderProps) {
   return (
     <header className={styles.header}>
-      <div className={styles.brand}>
-        <Image
-          src={logo.url}
-          alt={logo.altText}
-          width={160}
-          height={60}
-          priority
-        />
-        <h1 className={styles.title}>{title}</h1>
+      <div className={styles.inner}>
+        <div className={styles.brand}>
+          <Image
+            src={logo.url}
+            alt={logo.altText}
+            width={160}
+            height={60}
+            priority
+          />
+          <h1 className={styles.title}>{title}</h1>
+        </div>
+        <CartIcon />
       </div>
-      <CartIcon />
     </header>
   );
 }
