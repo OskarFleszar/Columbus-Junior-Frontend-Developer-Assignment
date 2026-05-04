@@ -8,6 +8,7 @@ export async function getColumbusData(): Promise<ColumbusRecruitmentData> {
   const res = await fetch(url, {
     headers: { "x-api-key": apiKey },
   });
+
   if (!res.ok) throw new Error(`API error: ${res.status}`);
   return res.json();
 }

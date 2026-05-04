@@ -12,7 +12,7 @@ export default function ProductList({ products }: ProductListProps) {
       <ul className={styles.grid}>
         {products.map((product, index) => (
           <li key={product.articleNumber} className={styles.item}>
-            <ProductCard product={product} priority={index < 4} />
+            <ProductCard product={product} priority={index < 2} />
           </li>
         ))}
       </ul>
