@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Columbus Recruitment Task
 
-## Getting Started
+A product listing page built with Next.js 16 (App Router), TypeScript, and CSS Modules. Submitted as a Junior Frontend Developer recruitment assignment for Columbus.
 
-First, run the development server:
+## Live demo
+
+[https://columbus-junior-frontend-developer.vercel.app](https://columbus-junior-frontend-developer.vercel.app)
+
+## Stack
+
+- **Next.js 16** (App Router)
+- **React 19**
+- **TypeScript** (strict mode)
+- **CSS Modules** with CSS custom properties
+- **Vercel** for hosting
+
+No external UI libraries — all components and styles are written from scratch.
+
+## Getting started
 
 ```bash
+# Install dependencies
+npm install
+
+# Configure environment variables
+cp .env.example .env.local
+# Edit .env.local and fill in API_KEY and API_URL
+
+# Run dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Available scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Script                   | Description                                  |
+| ------------------------ | -------------------------------------------- |
+| `npm run dev`            | Start the development server                 |
+| `npm run build`          | Create a production build                    |
+| `npm run start`          | Run the production build locally             |
+| `npm run lint`           | Run ESLint                                   |
+| `npm run types:generate` | Regenerate TypeScript types from JSON Schema |
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+.
+├── app/
+│   ├── layout.tsx           # Root layout with CartProvider and metadata
+│   ├── page.tsx             # Home page (Server Component, fetches products)
+│   ├── loading.tsx          # Loading skeleton (auto-shown during fetch)
+│   ├── error.tsx            # Error state with retry
+│   └── globals.css          # CSS variables and base styles
+├── components/
+│   ├── Header/              # Sticky header with logo, title, cart icon
+│   ├── CartIcon/            # Client Component — reads cart state, renders badge
+│   ├── ProductList/         # Server Component — responsive grid
+│   ├── ProductCard/         # Server Component — single product card
+│   ├── ProductImage/        # Client Component — image with onError fallback
+│   ├── PriceTag/            # Server Component — price + promotion display
+│   └── AddToCartButton/     # Client Component — add to cart with loading state
+├── context/
+│   └── CartContext.tsx      # Cart state via React Context (Client Component)
+├── lib/
+│   ├── api.ts               # Server-side API call with env-based auth
+│   ├── cart.ts              # fakeAddToCart helper (simulates async API)
+│   └── price.ts             # calculateDiscountedPrice helper
+├── schemas/
+│   └── columbus-recruitment.schema.json   # API response schema (provided)
+└── types/
+    └── columbus.ts          # Auto-generated TypeScript types from schema
+```
